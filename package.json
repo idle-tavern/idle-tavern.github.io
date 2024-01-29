@@ -4,17 +4,22 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "vite & bun run build:tww",
+    "build": " bun run build:tw && tsc && vite build",
+    "build:tw": "tailwindcss -i ./src/global.css -o ./src/assets/index.css",
+    "build:tww": "bun run build:tw -- --watch",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.9",
     "backendless": "^7.2.2",
+    "framer-motion": "^11.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
-    "react-router": "^6.21.3"
+    "react-router": "^6.21.3",
+    "react-router-dom": "^6.21.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
